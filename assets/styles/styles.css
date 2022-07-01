@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;1,200&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #ff5038;
+  --secondary-color: #ff4f38e5;
+  --white-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main{
+    overflow: hidden;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+  cursor: pointer;
+}
+
+.btn__primary {
+  font-weight: 600;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.7rem;
+}
+
+.btn__scroll{
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    bottom: 2rem;
+    right: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    border: 4px solid black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn__scroll:hover{
+    background-color: var(--secondary-color);
+    border: 4px solid rgba(0, 0, 0, 0.356);
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.shadow {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0/0.1), 0 4px 6px -4px rgb(0 0 0/0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+article#home, article#profile{
+    transform: translateX(-100rem);
+}
+article#experience{
+    transform: translateX(100rem);
+}
+
+.fade-in{
+    transform: translateX(0rem) !important;
+    transition: all 2s;
+}
+
+.show{
+    display: block;
+}
+
+
+.article__divider {
+  height: 5rem;
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+/* image utilities */
+
+.image__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 3rem;
+}
+
+.section__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+/* profile style */
+
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.profile__container h1 {
+  margin-bottom: 2rem;
+}
+
+.profile__content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* home style */
+.home__image__hero {
+  width: 17rem;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.home__content h1 {
+  font-size: 1.2rem;
+}
+
+.home__content p,q {
+  font-size: 0.8rem;
+}
+
+/* nav style */
+
+.nav__container {
+  display: flex;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background-color: white;
+}
+
+.nav__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav__link li {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+.nav__link li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.nav__link li::after {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0.15rem;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #ff5038;
+  transition: width 1s;
+}
+
+.nav__link li:hover::after {
+  width: 100%;
+}
+
+.nav__logo {
+  cursor: pointer;
+  width: 5rem;
+}
+
+/* card tyle */
+
+.card__container {
+  border: 4px solid black;
+  border-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+  width: 15rem;
+  background-color: var(--white-color);
+  padding: 2rem 1rem;
+  transition: all 1s;
+  cursor: pointer;
+}
+.card__container p {
+    display: none;
+}
+.card__container :nth-child(3) {
+    display: block;
+    text-align: center;
+    margin-bottom: 0rem;
+}
+
+.card__container:hover p{
+    display: block;
+}
+
+.card__image__wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.card__image__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 2rem;
+  background-color: #ff5038;
+  border-bottom-left-radius: 1.5rem;
+  font-weight: 600;
+  color: var(--white-color);
+  transition: all 1s;
+}
+
+.card__container:hover .card__tag {
+  width: 100%;
+  border-bottom-left-radius: 0;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: start;
+  position: relative;
+  margin-top: 15rem;
+}
+
+.footer__wave {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  max-height: 20rem;
+}
+
+.footer__socmed {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  z-index: 99;
+  bottom: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.footer__socmed i {
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.footer__socmed i:hover {
+  color: gainsboro;
+  transform: scale(1.1);
+}
+
+/* MEDIA QUERY */
+
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 100%;
+    padding: 4rem 6rem;
+  }
+
+  .btn__scroll{
+    bottom: 4rem;
+    right: 2rem;
+    padding: 0.7rem;
+  }
+  .nav__container {
+    padding: 0.5rem 4.5rem;
+  }
+
+  .nav__link li {
+    display: block;
+  }
+
+  .nav__link i {
+    display: none;
+  }
+
+  .section__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .home__content {
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .home__content h1 {
+    font-size: 3rem;
+  }
+
+  .home__content p,
+  q {
+    font-size: 0.8rem;
+  }
+
+  .home__image__hero {
+    width: 20rem;
+  }
+
+  .footer__socmed{
+    right: 2rem;
+    margin-left: 0;
+  }
+  .footer__socmed i{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .home__image__hero {
+    width: 30rem;
+  }
+
+  .home__content {
+    text-align: left;
+  }
+  .home__content h1 {
+    font-size: 3rem;
+  }
+
+  .home__content p,
+  q {
+    font-size: 1rem;
+  }
+}
