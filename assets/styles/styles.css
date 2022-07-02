@@ -3,7 +3,17 @@
 :root {
   --primary-color: #ff5038;
   --secondary-color: #ff4f38e5;
-  --white-color: white;
+  --white-color: #ffff;
+  --black-color: #111827;
+  --background-color: #ffff;
+  --font-color: #111827;
+  --border-color: #111827;
+}
+
+.dark {
+  --background-color: #111827;
+  --font-color: #ffff;
+  --border-color: #ffff;
 }
 
 * {
@@ -14,14 +24,18 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
-
+h1 {
+  color: var(--primary-color);
+}
 html {
   scroll-behavior: smooth;
 }
 
-main{
-    overflow: hidden;
+main {
+  overflow: hidden;
 }
 
 .btn {
@@ -37,23 +51,24 @@ main{
   border-radius: 0.7rem;
 }
 
-.btn__scroll{
-    display: none;
-    position: fixed;
-    z-index: 999999;
-    bottom: 2rem;
-    right: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: var(--primary-color);
-    border: 4px solid black;
-    font-weight: 700;
-    cursor: pointer;
+.btn__scroll {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  bottom: 2rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  border: 4px solid var(--border-color);
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--font-color);
 }
 
-.btn__scroll:hover{
-    background-color: var(--secondary-color);
-    border: 4px solid rgba(0, 0, 0, 0.356);
+.btn__scroll:hover {
+  background-color: var(--secondary-color);
+  border: 4px solid rgba(0, 0, 0, 0.356);
 }
 
 .btn:hover {
@@ -69,22 +84,29 @@ main{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-article#home, article#profile{
-    transform: translateX(-100rem);
-}
-article#experience{
-    transform: translateX(100rem);
+
+.white-shadow {
+  box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
+  -webkit-box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
+  -moz-box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
 }
 
-.fade-in{
-    transform: translateX(0rem) !important;
-    transition: all 2s;
+article#home,
+article#profile {
+  transform: translateX(-100rem);
+}
+article#experience {
+  transform: translateX(100rem);
 }
 
-.show{
-    display: block;
+.fade-in {
+  transform: translateX(0rem) !important;
+  transition: all 2s;
 }
 
+.show {
+  display: block;
+}
 
 .article__divider {
   height: 5rem;
@@ -132,11 +154,11 @@ article#experience{
   margin-bottom: 2rem;
 }
 
-.profile__content{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+.profile__content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* home style */
@@ -157,7 +179,8 @@ article#experience{
   font-size: 1.2rem;
 }
 
-.home__content p,q {
+.home__content p,
+q {
   font-size: 0.8rem;
 }
 
@@ -174,7 +197,7 @@ article#experience{
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.5rem;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .nav__link {
@@ -192,8 +215,16 @@ article#experience{
 }
 .nav__link li a {
   text-decoration: none;
-  color: black;
+  color: var(--font-color);
   font-weight: 600;
+}
+
+.nav__link i {
+  cursor: pointer;
+  padding: 1.2rem 0.6rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
 }
 
 .nav__link li::after {
@@ -219,7 +250,7 @@ article#experience{
 /* card tyle */
 
 .card__container {
-  border: 4px solid black;
+  border: 4px solid var(--black-color);
   border-radius: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -231,16 +262,16 @@ article#experience{
   cursor: pointer;
 }
 .card__container p {
-    display: none;
+  display: none;
 }
 .card__container :nth-child(3) {
-    display: block;
-    text-align: center;
-    margin-bottom: 0rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 0rem;
 }
 
-.card__container:hover p{
-    display: block;
+.card__container:hover p {
+  display: block;
 }
 
 .card__image__wrapper {
@@ -317,7 +348,7 @@ article#experience{
     padding: 4rem 6rem;
   }
 
-  .btn__scroll{
+  .btn__scroll {
     bottom: 4rem;
     right: 2rem;
     padding: 0.7rem;
@@ -330,7 +361,7 @@ article#experience{
     display: block;
   }
 
-  .nav__link i {
+  .nav__link .fa-bars {
     display: none;
   }
 
@@ -359,12 +390,13 @@ article#experience{
     width: 20rem;
   }
 
-  .footer__socmed{
-    right: 2rem;
+  .footer__socmed {
+    right: 4rem;
+    bottom: 3rem;
     margin-left: 0;
   }
-  .footer__socmed i{
-    font-size: 2rem;
+  .footer__socmed i {
+    font-size: 3rem;
   }
 }
 
@@ -383,5 +415,9 @@ article#experience{
   .home__content p,
   q {
     font-size: 1rem;
+  }
+
+  .nav__link i {
+    font-size: 1.7rem;
   }
 }
