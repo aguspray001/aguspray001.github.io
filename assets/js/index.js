@@ -1,20 +1,30 @@
 const heroSection = document.querySelector("#home");
 const experienceSection = document.querySelector("#experience");
 const profileSection = document.querySelector("#profile");
+const footerWave = document.querySelector(".footer__wave");
+
+const mobileMenuContainer = document.querySelector(".mobile-menu__container");
 
 const homeHeroImage = document.querySelector(".home__image__hero img");
 const darkHeroImageAlt = "./assets/images/boy-code-alt.png";
 const darkHeroImage = "./assets/images/boy-code.gif";
 
 const buttonScrollToTop = document.querySelector(".btn__scroll");
+const buttonMenu = document.querySelector(".fa-bars");
+
+const navLink = document.querySelectorAll(".nav__link li");
+const navLinkMobile = document.querySelectorAll(".mobile-menu__container li");
+
 const darkModeToggle = document.querySelector(".nav__link .fa-moon");
 const navContainer = document.querySelector(".nav__container");
-
 // footer
 const waIcon = document.querySelector("footer .fa-whatsapp-square");
 const instagramIcon = document.querySelector("footer .fa-instagram-square");
 
-
+// open menu in mobile version
+buttonMenu.addEventListener("click", () => {
+  mobileMenuContainer.classList.toggle("show");
+});
 // scroll to top
 const scrollToTop = () => {
   scrollTo(0, 0);
@@ -35,7 +45,6 @@ const darkMode = (darkState) => {
     darkModeToggle.classList.add("fa-sun");
     darkModeToggle.classList.remove("fa-moon");
     // change shadow color
-    navContainer.classList.remove("shadow");
     navContainer.classList.add("white-shadow");
   } else {
     localStorage.removeItem("theme");
@@ -46,7 +55,6 @@ const darkMode = (darkState) => {
     darkModeToggle.classList.remove("fa-sun");
     darkModeToggle.classList.add("fa-moon");
     // change shadow color
-    navContainer.classList.add("shadow");
     navContainer.classList.remove("white-shadow");
   }
 };
@@ -93,20 +101,48 @@ window.addEventListener("scroll", function (e) {
 
 // contact me
 const sendMessageToWA = () => {
-    window.open(
-        `https://api.whatsapp.com/send?phone=+6285961142551&text=Permisi *Admin*, apakah saya perlu bantuan untuk projek saya...`,
-        "_blank"
-      );
-}
+  window.open(
+    `https://api.whatsapp.com/send?phone=+6285961142551&text=Permisi *Admin*, apakah saya perlu bantuan untuk projek saya...`,
+    "_blank"
+  );
+};
 
 const openInstagram = () => {
-    window.open("https://www.instagram.com/aiot.maker/", "_blank")
+  window.open("https://www.instagram.com/aiot.maker/", "_blank");
+};
+
+waIcon.addEventListener("click", () => {
+  sendMessageToWA();
+});
+
+instagramIcon.addEventListener("click", () => {
+  openInstagram();
+});
+
+for (const link of navLink) {
+  link.addEventListener("click", function (e) {
+    if (e.target.id === "profile-nav") {
+      profileSection.scrollIntoView({ behavior: "smooth" });
+    }
+    if (e.target.id === "home-nav") {
+      heroSection.scrollIntoView({ behavior: "smooth" });
+    }
+    if (e.target.id === "project-nav") {
+      experienceSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
 }
 
-waIcon.addEventListener("click", ()=>{
-    sendMessageToWA();
-})
-
-instagramIcon.addEventListener("click", ()=> {
-    openInstagram();
-})
+for (const link of navLinkMobile) {
+  link.addEventListener("click", function (e) {
+    if (e.target.id === "profile-nav") {
+      profileSection.scrollIntoView({ behavior: "smooth" });
+    }
+    if (e.target.id === "home-nav") {
+      heroSection.scrollIntoView({ behavior: "smooth" });
+    }
+    if (e.target.id === "project-nav") {
+      experienceSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
