@@ -159,6 +159,32 @@ article#experience {
   padding: 0 2rem;
 }
 
+/* portfolio */
+.portfolio__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.portfolio__container h1{
+  margin-bottom: 4rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.portfolio__container h4 {
+  margin-top: 2rem;
+}
+
+.portfolio__content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 /* profile style */
 
 .profile__container {
