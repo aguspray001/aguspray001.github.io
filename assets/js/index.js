@@ -15,7 +15,8 @@ const buttonMenu = document.querySelector(".fa-bars");
 const navLink = document.querySelectorAll(".nav__link li");
 const navLinkMobile = document.querySelectorAll(".mobile-menu__container li");
 
-const darkModeToggle = document.querySelector(".nav__link .fa-moon");
+const darkModeToggle = document.querySelector(".nav__link #dark-toggle");
+console.log(darkModeToggle)
 const navContainer = document.querySelector(".nav__container");
 // footer
 const waIcon = document.querySelector("footer .fa-whatsapp-square");
@@ -24,6 +25,7 @@ const instagramIcon = document.querySelector("footer .fa-instagram-square");
 // open menu in mobile version
 buttonMenu.addEventListener("click", () => {
   mobileMenuContainer.classList.toggle("show");
+  
 });
 // scroll to top
 const scrollToPos = (yPos) => {
@@ -41,7 +43,6 @@ buttonScrollToTop.addEventListener("click", function (e) {
 // dark mode function utilities
 const darkMode = (darkState) => {
   if (darkState === true) {
-    localStorage.removeItem("theme");
     localStorage.setItem("theme", "dark");
     // change image
     homeHeroImage.setAttribute("src", darkHeroImageAlt);
@@ -51,7 +52,6 @@ const darkMode = (darkState) => {
     // change shadow color
     navContainer.classList.add("white-shadow");
   } else {
-    localStorage.removeItem("theme");
     localStorage.setItem("theme", "light");
     // change image
     homeHeroImage.setAttribute("src", darkHeroImage);
@@ -77,9 +77,11 @@ darkModeToggle.addEventListener("click", () => {
 window.addEventListener("load", function () {
   heroSection.classList.add("fade-in");
 
-  if (localStorage && localStorage.getItem("theme") === "dark") {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
     darkMode(true);
   } else {
+    document.body.classList.remove("dark");
     darkMode(false);
   }
 });
