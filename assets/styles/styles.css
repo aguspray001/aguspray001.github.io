@@ -62,6 +62,7 @@ html {
   font-weight: 700;
   cursor: pointer;
   color: var(--font-color);
+  transition: all 1s;
 }
 
 .btn__scroll:hover {
@@ -84,9 +85,9 @@ html {
 }
 
 .white-shadow {
-  box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
-  -webkit-box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
-  -moz-box-shadow: 10px 10px 12px -6px rgba(255,255,255,0.31);
+  box-shadow: 10px 10px 12px -6px rgba(255, 255, 255, 0.31);
+  -webkit-box-shadow: 10px 10px 12px -6px rgba(255, 255, 255, 0.31);
+  -moz-box-shadow: 10px 10px 12px -6px rgba(255, 255, 255, 0.31);
 }
 
 article#home,
@@ -99,17 +100,38 @@ article#experience {
 
 .fade-in {
   transform: translateX(0rem) !important;
-  transition: all 2s;
+  transition: all 1s;
 }
 
 .show {
   display: block !important;
 }
 
+@keyframes slide-up {
+  0% {
+    transform: rotateZ(0deg);
+    transform: translateY(0);
+  }
+
+  10% {transform: rotateZ(-5deg);}
+  30% {transform: rotateZ(5deg);}
+  50% {transform: rotateZ(-5deg);}
+  70% {transform: rotateZ(5deg);}
+  90% {transform: rotateZ(-5deg);}
+  100%{transform: rotateZ(0) translateY(-100rem);
+  display: none;}
+}
+
+.shake__animation {
+  animation: 1s alternate slide-up;
+}
+
 .article__divider {
-  height: 5rem;
-  width: 100%;
-  background-color: var(--primary-color);
+  height: 0.15rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--border-color);
 }
 
 /* image utilities */
@@ -238,13 +260,16 @@ q {
 .nav__link li:hover::after {
   width: 100%;
 }
-
+.nav__title {
+  display: flex;
+  gap: 2rem;
+}
 .nav__logo {
   cursor: pointer;
   width: 5rem;
 }
 
-.mobile-menu__container{
+.mobile-menu__container {
   display: none;
   position: fixed;
   top: 4rem;
@@ -280,6 +305,7 @@ q {
   transition: all 1s;
   cursor: pointer;
 }
+
 .card__container p {
   display: none;
   text-align: center;
@@ -298,6 +324,7 @@ q {
 .card__image__wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
   padding: 0 2rem;
 }
 
@@ -312,6 +339,7 @@ q {
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   padding: 0.5rem 2rem;

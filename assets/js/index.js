@@ -26,12 +26,16 @@ buttonMenu.addEventListener("click", () => {
   mobileMenuContainer.classList.toggle("show");
 });
 // scroll to top
-const scrollToTop = () => {
-  scrollTo(0, 0);
+const scrollToPos = (yPos) => {
+  scrollTo(0, yPos);
 };
 
-buttonScrollToTop.addEventListener("click", function () {
-  scrollToTop();
+buttonScrollToTop.addEventListener("click", function (e) {
+  buttonScrollToTop.classList.add("shake__animation")
+  setTimeout(() => {
+    scrollToPos(scroll);
+    buttonScrollToTop.classList.remove("shake__animation")
+  }, 1000);
 });
 
 // dark mode function utilities
@@ -89,9 +93,11 @@ window.addEventListener("scroll", function (e) {
     if (scroll > 800) {
       profileSection.classList.add("fade-in");
       buttonScrollToTop.classList.add("show");
+      // buttonScrollToTop.classList.add("shake__animation");
     } else {
       profileSection.classList.remove("fade-in");
       buttonScrollToTop.classList.remove("show");
+      // buttonScrollToTop.classList.remove("shake__animation");
     }
   } else {
     experienceSection.classList.remove("fade-in");
